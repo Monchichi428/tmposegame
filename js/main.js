@@ -144,17 +144,31 @@ function handlePrediction(predictions, pose) {
 // Keyboard State
 const keys = {
   left: false,
-  right: false
+  right: false,
+  up: false,
+  down: false,
+  space: false
 };
 
 window.addEventListener("keydown", (e) => {
   if (e.key === "ArrowLeft") keys.left = true;
   if (e.key === "ArrowRight") keys.right = true;
+  if (e.key === "ArrowUp") keys.up = true;
+  if (e.key === "ArrowDown") keys.down = true;
+  if (e.key === " " || e.code === "Space") {
+    keys.space = true;
+    // Trigger grab action immediately on press? Or continuous?
+    // Better to trigger once per press.
+    if (gameEngine) gameEngine.handleInput("space");
+  }
 });
 
 window.addEventListener("keyup", (e) => {
   if (e.key === "ArrowLeft") keys.left = false;
   if (e.key === "ArrowRight") keys.right = false;
+  if (e.key === "ArrowUp") keys.up = false;
+  if (e.key === "ArrowDown") keys.down = false;
+  if (e.key === " " || e.code === "Space") keys.space = false;
 });
 
 // Game Loop Variable
@@ -169,10 +183,13 @@ function drawGameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   if (gameEngine) {
-    // 키보드 입력 처리
-    const moveSpeed = 0.2;
-    if (keys.left) gameEngine.moveBasketRelative(-moveSpeed * deltaTime);
-    if (keys.right) gameEngine.moveBasketRelative(moveSpeed * deltaTime);
+    // 키보드 입력 처리 (이동)
+    const moveSpeed = 0.15;
+    if (keys.left) gameEngine.moveClaw(-moveSpeed * deltaTime, 0);
+    if (keys.right) gameEngine.moveClaw(moveSpeed * deltaTime, 0);
+    if (keys.up) gameEngine.moveClaw(0, -moveSpeed * deltaTime);
+    if (keys.down) gameEngine.moveClaw(0, moveSpeed * deltaTime);
+
 
     // 업데이트
     gameEngine.update(Math.min(deltaTime, 50));
