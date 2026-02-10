@@ -159,7 +159,9 @@ window.addEventListener("keydown", (e) => {
     keys.space = true;
     // Trigger grab action immediately on press? Or continuous?
     // Better to trigger once per press.
-    if (gameEngine) gameEngine.handleInput("space");
+    keys.space = true;
+    // Space input removed for Sushi game
+
   }
 });
 
@@ -186,11 +188,9 @@ function drawGameLoop() {
     // 키보드 입력 처리 (이동)
     const moveSpeed = 0.15;
     // Only X axis is user controllable in IDLE state
-    if (keys.left) gameEngine.moveClaw(-moveSpeed * deltaTime, 0);
-    if (keys.right) gameEngine.moveClaw(moveSpeed * deltaTime, 0);
-    // Up/Down removed/ignored as claw is fixed height until drop
-    // if (keys.up) ... 
-    // if (keys.down) ...
+    // Move Rice
+    if (keys.left) gameEngine.movePlayer(-moveSpeed * deltaTime);
+    if (keys.right) gameEngine.movePlayer(moveSpeed * deltaTime);
 
 
     // 업데이트
