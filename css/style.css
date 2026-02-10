@@ -9,23 +9,9 @@ body {
   align-items: center;
   background-color: #5C94FC;
   /* Mario Sky Blue */
-  background-image:
-    /* Clouds (CSS Radial Gradients) */
-    radial-gradient(circle, #fff 50%, transparent 50%),
-    radial-gradient(circle, #fff 50%, transparent 50%),
-    radial-gradient(circle, #fff 50%, transparent 50%),
-    /* Ground */
-    linear-gradient(to bottom, transparent 85%, #00bc04 85%, #00bc04 90%, #6b8cff 90%);
-  background-size:
-    100px 100px,
-    150px 150px,
-    120px 120px,
-    100% 100%;
-  background-position:
-    10% 20%,
-    60% 15%,
-    90% 25%,
-    0 0;
+  background-image: url('https://ader.naver.com/v1/DmFfkrncouYfVu0AoELuPxKsVm5pga_NQQUGYiuW9YhmmOlZPoUpMwX53JwOrtB2ty_yEJcwhXfzyNQRlmhCpwlAYJ9F_0ivTCJXtdS9k7CwemEY36jWkK-5155P1cZgpIfK93b3Mcj38cruIoeTqnDR-vn5Um-7VLdRs_rtv30qlYL5Z5YOVuESO-L1ijcRogjO5TbNRmhzbuCJFDvt3PEP8vLe8geLZboYA62_V-4Sc5b8R5NnPLZwQrPZhaeVw5f2wI1jH1M0qsHYz3JeFWczdcyoSOS1d-6E7EMfq2sRPPfJTdsm77k_dKCorLvxo8uCQOeKLsbu9Jh4Jh4EpB4jvjuDF60ZGjFziDHqbqzsIGUCpk44FLyxPDDToas4D1VUvXmkxA_liJ9KRlxt0eY1fPnvMvViV42GiGd6gYw6RgxHr54qvUIAG3NuojYW8CTnU1nA1JuU1mShA7uSIEySqfq9AqIu7vg5392Hsz6ozfoxQg-y0-zf0jGhUbCq?c=naver.search.pc.tab.image.npla&t=0');
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
 }
 

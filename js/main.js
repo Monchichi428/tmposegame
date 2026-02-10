@@ -185,10 +185,12 @@ function drawGameLoop() {
   if (gameEngine) {
     // 키보드 입력 처리 (이동)
     const moveSpeed = 0.15;
+    // Only X axis is user controllable in IDLE state
     if (keys.left) gameEngine.moveClaw(-moveSpeed * deltaTime, 0);
     if (keys.right) gameEngine.moveClaw(moveSpeed * deltaTime, 0);
-    if (keys.up) gameEngine.moveClaw(0, -moveSpeed * deltaTime);
-    if (keys.down) gameEngine.moveClaw(0, moveSpeed * deltaTime);
+    // Up/Down removed/ignored as claw is fixed height until drop
+    // if (keys.up) ... 
+    // if (keys.down) ...
 
 
     // 업데이트
